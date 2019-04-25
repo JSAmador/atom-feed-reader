@@ -1,0 +1,16 @@
+GET       => /feeds                             		=> feedController@index
+POST      => /feeds                             		=> feedController@store
+GET       => /feeds/{feeds}                  		=> feedController@show
+PUT       => /feeds/{feeds}                  		=> feedController@update
+PATCH     => /feeds/{feeds}                  		=> feedController@update
+DELETE    => /feeds/{feeds}                  		=> feedController@destroy
+---------------------------------------------------------------------------------------
+
+GET       => /entries                              	=> entryController@index
+POST      => /entries                              	=> entryController@store
+GET       => /entries/{entries}                		=> entryController@show
+PUT       => /entries/{entries}                		=> entryController@update
+PATCH     => /entries/{entries}                		=> entryController@update
+DELETE    => /entries/{entries}                		=> entryController@destroy
+---------------------------------------------------------------------------------------
+

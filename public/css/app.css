@@ -1,0 +1,235 @@
+html, body {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #E1E2E1;
+}
+
+a, link {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+}
+
+small {
+    font-size: 12px;
+}
+
+.head-container {
+    width: 100%;
+    background-color: #17a2b8;
+}
+
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    text-align: left;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0 auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    flex-grow: 2;
+}
+
+.menu a {
+    margin: 0 5%;
+    font-weight: 500;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+    color: #666;
+}
+
+.feeds-container {
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+    flex-direction: column;
+    border-right: 2px solid #666;
+    margin: 20px 10px;
+}
+
+.feed {
+    margin: 0 auto;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    width: 95%;
+    background-color: #F5F5F6;
+    margin-bottom: 20px;
+}
+
+.feed img {
+    max-width: 100%;
+}
+
+.feed-header {
+    background-color: #007387;
+    padding: 15px;
+    color: black;
+}
+
+.feed-header > h2 {
+    margin: 0px;
+    font-size: 1.2em;
+}
+
+.feed-body {
+    padding: 15px;
+}
+
+.sidebar {
+    padding: 10px;
+    color: #666;
+    width: 25%;
+}
+
+.add-feed {
+    margin: 30px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.add-feed form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    align-items: center;
+}
+
+input {
+    height: 40px;
+    width: 80%;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    margin: 10px;
+}
+
+
+button {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: black;
+    background-color: #007387;
+    border: none;
+}
+
+button:hover {
+    background-color: transparent;
+    border: 2px solid #007387;
+    color: #fff;
+    cursor: pointer;
+}
+
+.success {
+    background-color: lightgreen;
+    padding: 1px;
+    text-align: center;
+    color: green;
+}
+
+.fail {
+    background-color: lightcoral;
+    width: 100%;
+    padding: 1px;
+    text-align: center;
+    color: red;
+}
+
+.success, .fail {
+    -moz-animation: cssAnimation 0s ease-in 3s forwards;
+    -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+    -o-animation: cssAnimation 0s ease-in 3s forwards;
+    animation: cssAnimation 0s ease-in 3s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+.recent-entry > h3, .recent-feed > h3 {
+    font-size: 1em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.recent-entry > h3:hover, .recent-feed > h3:hover {
+    opacity: .8;
+}
+
+.feed-footer {
+    text-align: right;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    font-size: .8em;
+}
+
+.feed-footer > a:hover {
+    text-decoration: underline;
+}
+
+.recent-entries > img {
+    width: 100%;
+}
+
+.feed-info {
+    overflow-x: auto;
+}
+
+.add-rate form {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    justify-content: space-between;
+}
+
+.add-rate input:first-of-type {
+    width: 15%;
+}
+
+.entry-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.entry-header .rate {
+    color: yellow;
+    font-size: 21px;
+    font-weight: bold
+}

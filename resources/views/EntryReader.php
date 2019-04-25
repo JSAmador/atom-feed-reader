@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><?php $entry->title ?></title>
+    <link href="/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="head-container">
+    <div class="head">
+        <div class="left">
+            <h1> Feed entry </h1>
+        </div>
+        <div class="menu">
+            <a href="/feedReader"><button> All Feeds </button></a>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="feeds-container">
+            <div class="feed">
+                <div class="feed-header entry-header">
+                    <h2>
+                        <small><?= date('D, d M Y', (int) $entry->updated) ?></small>
+                        <br />
+                        <?= htmlSpecialChars($entry->title) ?>
+                    </h2>
+                    <p class="rate"><?= htmlSpecialChars($entry_rating) ?></p>
+                </div>
+                <div class="feed-body">
+                    <div class="entry-summary">
+                        <div><?= $entry->summary ?></div>
+                    </div>
+                    <div class="entry-body">
+                        <div><?= $entry->content ?></div>
+                    </div>
+                    <div class="entry-info">
+                        <h3>Authors</h3>
+                        <?php foreach ($entry_authors as $author): ?>
+                            <ul>
+                                <li><?= htmlSpecialChars($author->name)?></li>
+                                <li><?= htmlSpecialChars($author->email)?></li>
+                                <li><?= htmlSpecialChars($author->uri)?></li>
+                            </ul>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="entry-info">
+                        <h3>Contributors</h3>
+                        <?php foreach ($entry_contributors as $contributor): ?>
+                            <ul>
+                                <li><?= htmlSpecialChars($contributor->name)?></li>
+                                <li><?= htmlSpecialChars($contributor->uri)?></li>
+                                <li><?= htmlSpecialChars($contributor->email)?></li>
+                            </ul>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="entry-info">
+                        <h3>Categories</h3>
+                        <?php foreach ($entry_categories as $categories): ?>
+                            <ul>
+                                <li><?= htmlSpecialChars($categories->term)?></li>
+                                <li><?= htmlSpecialChars($categories->scheme)?></li>
+                                <li><?= htmlSpecialChars($categories->label)?></li>
+                            </ul>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="entry-info">
+                        <h3>Links</h3>
+                        <?php foreach ($entry_links as $link): ?>
+                            <ul>
+                                <li><a rel="<?= htmlSpecialChars($link->rel)?>" type="<?= htmlSpecialChars($link->type)?>" href="<?= htmlSpecialChars($link->href)?>">
+                                    <?= empty($link->title) ?
+                                        parse_url($link->href, PHP_URL_HOST) :
+                                        $link->title ?>
+                                </a></li>
+                            </ul>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="entry-footer">
+                        <div><?= $entry->rights ?></div>
+                    </div>
+                </div>
+            </div>
+            <div class="rating">
+                <div class="add-rate">
+                    <form method="post">
+                        <label for="rate">Rate</label>
+                        <input name="rate" type="number" min="1" max="10">
+                        <label for="name">Name</label>
+                        <input name="name" type="text">
+                        <label for="email">Email</label>
+                        <input name="email" type="email">
+                        <input type="hidden" name="entry_id" value="<?= htmlSpecialChars($entry->id) ?>">
+                        <button type="submit"> Rate Entry</button>
+                    </form>
+                </div>
+            </div>
+    </div>
+    <div class="sidebar">
+        <div class="recent-entries">
+            <h2>About the Feed</h2>
+            <img src="<?= htmlSpecialChars($feed->logo) ?>"/>
+            <h3><?= htmlSpecialChars($feed->title) ?></h3>
+            <div class="recent-feed">
+                <p><?= htmlSpecialChars($feed->subtitle) ?></p>
+                <p>Last updated: <?= htmlSpecialChars($feed->updated) ?></p>
+                <p><?= htmlSpecialChars($feed->rights) ?> <img src="<?= htmlSpecialChars($feed->icon) ?>"/> </p>
+                <p>Generated By: <?= htmlSpecialChars($feed_generator->uri)?> - <?= htmlSpecialChars($feed_generator->version) ?></p>
+                <p>Added By: <?= htmlSpecialChars($feed_added->username) ?></p>
+            </div>
+            <div class="feed-info">
+                    <h3>Authors</h3>
+                        <?php foreach ($feed_authors as $author): ?>
+                            <ul>
+                                <li><?= htmlSpecialChars($author->name)?></li>
+                                <li><?= htmlSpecialChars($author->email)?></li>
+                                <li><?= htmlSpecialChars($author->uri)?></li>
+                            </ul>
+                        <?php endforeach ?>
+            </div>
+            <div class="feed-info">
+                    <h3>Contributors</h3>
+                    <?php foreach ($feed_contributors as $contributor): ?>
+                        <ul>
+                            <li><?= htmlSpecialChars($contributor->name)?></li>
+                            <li><?= htmlSpecialChars($contributor->email)?></li>
+                            <li><?= htmlSpecialChars($contributor->uri)?></li>
+                        </ul>
+                    <?php endforeach ?>
+            </div>
+            <div class="feed-info">
+                <h3>Categories</h3>
+                <ul>
+                <?php foreach ($feed_categories as $categories): ?>
+                        <li>Term: <?= htmlSpecialChars($categories->term)?>, <?= htmlSpecialChars($categories->schema)?>, <?= htmlSpecialChars($categories->updated)?></li>
+                <?php endforeach ?>
+                </ul>
+            </div>
+            <div class="feed-info">
+                <h3>Links</h3>
+                <?php foreach ($feed_links as $link): ?>
+                    <ul>
+                        <li><a  href="<?= htmlSpecialChars($link->href)?>">
+                            <?= empty($link->title) ?
+                            parse_url($link->href, PHP_URL_HOST) :
+                            $link->title ?>
+                        </a></li>
+                     </ul>
+                <?php endforeach ?>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
